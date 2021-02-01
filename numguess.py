@@ -1,14 +1,18 @@
 import random
 
 answer = random.randint(1,100)
-user_guess = input("Guess the number: ")
-print(user_guess)
 print(answer, type(answer))
+chances = 5 # Try number
 
-guess = 20
-#TO DELETE UPON MERGE
+while chances > 0:
+    user_guess = int(input("Guess the number: "))
+    if answer == user_guess:
+        chances -= 1
+        print("CORRECT!")
+    else:
+        chances -= 1
+        if chances == 0:
+            print("WRONG! The correct number is {}.".format(answer))
+            break
+        print("Try again! You have {} chance(s)".format(chances))
 
-if answer-guess==0:
-    print("CORRECT!")
-else:
-    print("WRONG! The correct number is {}.".format(answer))
